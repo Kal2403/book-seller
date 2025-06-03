@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { navbarStyles } from '../assets/dummystyles';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logoicon.png';
+import { navItems } from '../assets/dummydata';
 
 const NavBar = () => {
 
@@ -31,6 +32,25 @@ const NavBar = () => {
                             </div>
                         </div>
                     </Link>
+                    <div className={navbarStyles.desktopNavWrapper}>
+                        {navItems.map((item) => {
+                            const isActive = location.pathname === item.path
+                            return (
+                                <Link key={item.name} to={item.path} className={navbarStyles.navLink}>
+                                    <div className='relative z-10 flex items-center'>
+                                        <div className='relative'>
+                                            <div className={navbarStyles.navIconWrapper(item.color)} />
+                                            <item.icon className={navbarStyles.navIcon(isActive)} />
+                                        </div>
+                                        <span className={navbarStyles.navText(isActive, item.color)}>
+                                            {item.name}
+                                        </span>
+                                        {isActive && <span className={navbarStyles.navUnderline(item.color)} />}
+                                    </div>
+                                </Link>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </nav>
