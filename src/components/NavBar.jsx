@@ -5,12 +5,17 @@ import logo from '../assets/logoicon.png';
 import { navItems } from '../assets/dummydata';
 import { FaOpencart } from 'react-icons/fa';
 import { User } from 'lucide-react';
+import { useCart } from '../CartContext/CartContext';
 
 const NavBar = () => {
 
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+
+    const { cart } = useCart();
+
+    const totalQuantity = cart.items.reduce((total, item) => total + item.quantity, 0)
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 10)
