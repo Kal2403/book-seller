@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logoicon.png';
 import { navItems } from '../assets/dummydata';
 import { FaOpencart } from 'react-icons/fa';
-import { User } from 'lucide-react';
+import { Menu, User, X } from 'lucide-react';
 import { useCart } from '../CartContext/CartContext';
 
 const NavBar = () => {
@@ -77,6 +77,15 @@ const NavBar = () => {
                                 <User className={navbarStyles.loginIcon} />
                             </div>
                         </Link>
+                    </div>
+
+                    <div className='md:hidden flex items-center'>
+                        <button onClick={() => setIsOpen(!isOpen)} className={navbarStyles.menuBtn} >
+                            <div className={navbarStyles.menuGradient} />
+                            <div className='relative'>
+                                {isOpen ? <X className={navbarStyles.menuIcon} /> : <Menu className={navbarStyles.menuIcon} />}
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
