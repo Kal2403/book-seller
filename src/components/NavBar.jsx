@@ -3,6 +3,8 @@ import { navbarStyles } from '../assets/dummystyles';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logoicon.png';
 import { navItems } from '../assets/dummydata';
+import { FaOpencart } from 'react-icons/fa';
+import { User } from 'lucide-react';
 
 const NavBar = () => {
 
@@ -50,6 +52,26 @@ const NavBar = () => {
                                 </Link>
                             )
                         })}
+                    </div>
+
+                    <div className={navbarStyles.rightIconsWrapper}>
+                        <Link to="/cart" className={navbarStyles.cartWrapper}>
+                            <div className={navbarStyles.cartGradient} />
+                            <div className='relative'>
+                                <FaOpencart className={navbarStyles.cartIcon} />
+                                {totalQuantity > 0 && (
+                                    <span className={navbarStyles.cartBadge}>
+                                        {totalQuantity}
+                                    </span>
+                                )}
+                            </div>
+                        </Link>
+                        <Link to='/login' className={navbarStyles.loginWrapper} >
+                            <div className={navbarStyles.loginGradient} />
+                            <div className='relative'>
+                                <User className={navbarStyles.loginIcon} />
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
