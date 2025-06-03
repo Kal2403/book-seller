@@ -89,6 +89,42 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
+
+            {isOpen && (
+                <div className={navbarStyles.mobileMenu}>
+                    <div className={navbarStyles.mobileContainer}>
+                        <div className='flex flex-col space-y-1'>
+                            {navItems.map((item) => {
+                                const isActive = location.pathname === item.path
+
+                                return (
+                                    <Link key={item.name} to={item.path} onClick={() => setIsOpen(false)} className={navbarStyles.mobileNavItem(isActive, item.color)} >
+                                        <item.icon className={navbarStyles.mobileNavIcon(isActive, item.color)} />
+                                        <span className={navbarStyles.mobileNavText(isActive, item.color)}>
+                                            {item.name}
+                                        </span>
+                                    </Link>
+                                )
+                            })}
+
+                            <div className={navbarStyles.mobileIconRow}>
+                                <Link to='/cart' className='relative group p-2' onClick={() => setIsOpen(false)} >
+                                    <FaOpencart className='h5 w-5 text-gray-600 group-hover:text-amber-600' />
+                                    {totalQuantity > 0 && (
+                                        <span className={navbarStyles.mobileCartBadge}>
+                                            {totalQuantity}
+                                        </span>
+                                    )}
+                                </Link>
+
+                                <Link to='login' className='p-2 group' onClick={() => setIsOpen(false)}>
+                                    <User className='h-5 w-5 text-gray-600 group-hover:text-emerald-600' />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </nav>
     )
 }
