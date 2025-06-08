@@ -45,6 +45,16 @@ const cartReducer = (state, action) => {
                     : i,
                 ),
             }
+
+        case "DECREMENT":
+            return {
+                ...state,
+                items: state.items.map((i) => i.id === action.payload.id && (i.source === action.payload.source || (!i.source === !action.payload.source))
+                    ? { ...i, quantity: i.quantity - 1 }
+                    : i,
+                )
+                    .filter((i) => i.quantity > 0)
+            }
         default:
             return state
     }
