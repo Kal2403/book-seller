@@ -19,6 +19,23 @@ const loadInitalState = () => {
 
 const cartReducer = (state, action) => {
     switch (action.type) {
+        case "ADD_ITEM": {
+            const itemToAdd = { ...action.payload, quantity: action.payload.quantity || 1 }
+            const exists = state.items.find(
+                (i) => i.id === itemToAdd.id && (i.source === itemToAdd.source || (!i.source && !itemToAdd.source))
+            )
+
+            if (exists) {
+                return {
+                    ...state,
+                    items: state.items.map((i) => i.id === itemToAdd.id && (i.source === itemToAdd.source || (!i.source && !itemToAdd.source))
+                        ? { ...i, quantity: i.quantity + itemToAdd.quantity }
+                        : i,
+                    )
+                }
+            }
+            return { ...state, items: [...state.items, itemToAdd] }
+        }
         default:
             return state
     }
