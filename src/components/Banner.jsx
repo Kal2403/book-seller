@@ -12,6 +12,26 @@ import img from '../assets/banner1.png';
 
 const Banner = () => {
 
+    const [searchQuery, setSearchQuery] = useState("");
+    const [currentWord, setCurrentWord] = useState(0);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentWord((prev) => (prev + 1) % words.length)
+        }, 2000)
+        return () => clearInterval(interval)
+    }, [])
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        if(searchQuery.trim()) {
+            navigate(`/books?search=${encodeURIComponent(searchQuery.trim())}`)
+        }
+    }
+
     return (
         <div className={container}>
             <div className={glassBox}>
