@@ -79,6 +79,11 @@ const Banner = () => {
                         </div>
                     </div>
                 </div>
+                <div className={scrollTextSection}>
+                    <div className={scrollText}>
+                        Curated Collections 🌟 Award-Wining Authors 🌟 Critical Analysis 🌟 Cultural Perspective
+                    </div>
+                </div>
             </div>
         </div>
     )
