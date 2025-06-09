@@ -72,6 +72,12 @@ const Banner = () => {
                             </div>
                         </form>
                     </div>
+                    <div className={imageSection}>
+                        <div className={imageWrapper}>
+                            <img src={img} alt="Image Banner" className={imageStyle} />
+                            <div className={overlayEffect} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
