@@ -56,6 +56,21 @@ const Banner = () => {
                                 Discover transformative content crefted for the modern intellect.
                             </p>
                         </div>
+                        <form onSubmit={handleSearch} className='space-y-6 md:space-y-8'>
+                            <div className={formContainer}>
+                                <div className={inputWrapper}>
+                                    <div className='absolute inset-0 bg-white/90 rounded-lg md:rounded-xl shadow-sm' />
+                                    <div className='relative flex items-center'>
+                                        <Search className='ml-4 md:ml-5 w-5 h-5 md:w-6 text-gray-600 group-focus-within:text-[#285876]' />
+                                        <input type="text" name="" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder='Search Author, titles, or concept...' className={inputField} />
+                                    </div>
+                                </div>
+                                <button type='submit' className={searchButton}>
+                                    <Search className='w-4 h-4 md:w-5 md:h-5' />
+                                    <span className='sr-only'>Search</span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
