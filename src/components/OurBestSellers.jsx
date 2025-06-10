@@ -6,6 +6,12 @@ import { useCart } from '../CartContext/CartContext';
 
 const OurBestSellers = () => {
 
+    const scrollRef = useRef(null);
+    const { cart, dispatch } = useCart();
+
+    const inCart = (id) => cart?.items?.some(item => item.id === id);
+    const getQty = (id) => cart?.items?.find(item => item.id === id)?.quantity || 0;
+
     return (
         <section className={styles.section}>
             <div className={styles.container}>
