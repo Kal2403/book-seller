@@ -43,6 +43,29 @@ const OurBestSellers = () => {
                         </div>
                     </div>
                 </div>
+                <div className={styles.scrollContainer} ref={scrollRef}>
+                    {obsbooks.map((book, index) => (
+                        <div className={styles.card(bgColors[index % bgColors.length])} key={book.id} >
+                            <div className={styles.cardInner}>
+                                <div className='space-y-3 md:space-y-4'>
+                                    <div className={styles.stars}>
+                                        {[...Array(5)].map((_, i) => (
+                                            <Star className='h-4 w-4 md:h-5 md:w-5 text-amber-400 fill-amber-400' key={i} />
+                                        ))}
+                                    </div>
+                                    <div className={styles.bookInfo}>
+                                        <h2 className={styles.bookTitle}>{book.title}</h2>
+                                        <p className={styles.bookAuthor}>{book.author}</p>
+                                    </div>
+                                    <p className={styles.bookDesc}>
+                                        Jane McLane's latest masterpiece challeges conventional storytelling.
+                                        Explore transformative narratives that...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     )
