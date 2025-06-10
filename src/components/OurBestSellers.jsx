@@ -18,6 +18,17 @@ const OurBestSellers = () => {
                         </h1>
                         <p className={styles.subtitle}>Top Rated by Our Readers</p>
                     </div>
+                    <div className={styles.navWrapper}>
+                        <div className={styles.navLine} />
+                        <div className={styles.navButtons}>
+                            <button onClick={scrollLeft} className={styles.navBtn}>
+                                <ChevronLeft className={styles.navIcon} size={20} />
+                            </button>
+                            <button onClick={scrollRight} className={styles.navBtn}>
+                                <ChevronRight className={styles.navIcon} size={20} />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
