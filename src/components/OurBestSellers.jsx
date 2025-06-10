@@ -62,7 +62,29 @@ const OurBestSellers = () => {
                                         Explore transformative narratives that...
                                     </p>
                                 </div>
+                                <div className={styles.cartControls}>
+                                    <div className={styles.priceQtyWrapper}>
+                                        <span className={styles.price}>${book.price.toFixed(2)}</span>
+                                        {inCart(book.id) ? (
+                                            <div className={styles.qtyWrapper}>
+                                                <button onClick={() => handleDec(book.id)} className={styles.qtyBtn} >
+                                                    <Minus size={18} />
+                                                </button>
+                                                <span className={styles.qtyText}>{getQty(book.id)}</span>
+                                                <button onClick={() => handleInc(book.id)} className={styles.qtyBtn} >
+                                                    <Plus size={18} />
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <button onClick={() => handleAdd(book)} className={styles.addButton}>
+                                                <ShoppingCart className='h-4 w-4 md:h-5 md:w-5' />
+                                                <span>Add To Collection</span>
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
+                            <img src={book.image} alt={book.title} className={styles.bookImage} />
                         </div>
                     ))}
                 </div>
