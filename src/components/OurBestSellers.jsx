@@ -12,6 +12,13 @@ const OurBestSellers = () => {
     const inCart = (id) => cart?.items?.some(item => item.id === id);
     const getQty = (id) => cart?.items?.find(item => item.id === id)?.quantity || 0;
 
+    const handleAdd = (book) => dispatch({ type: "ADD_ITEM", payload: { ...book, quantity: 1 } })
+    const handleInc = (id) => dispatch({ type: "INCREMENT", payload: { id } })
+    const handleDec = (id) => dispatch({ type: "DECREMENT", payload: { id } })
+
+    const scrollLeft = () => scrollRef.current.scrollBy({ left: -400, behavior: "smooth" });
+    const scrollRight = () => scrollRef.current.scrollBy({ left: 400, behavior: "smooth" })
+
     return (
         <section className={styles.section}>
             <div className={styles.container}>
