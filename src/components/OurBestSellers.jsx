@@ -8,6 +8,18 @@ const OurBestSellers = () => {
 
     return (
         <section className={styles.section}>
+            <div className={styles.container}>
+                <div className={styles.headerWrapper}>
+                    <div className={styles.headerText}>
+                        <h1 className={styles.title}>
+                            <span className={styles.gradientText}>
+                                Curated Excellence
+                            </span>
+                        </h1>
+                        <p className={styles.subtitle}>Top Rated by Our Readers</p>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }
