@@ -23,6 +23,26 @@ const HomeBook = () => {
                         <h2 className={styles.heading}>Bookseller Favorites</h2>
                         <div className={styles.headingLine} />
                     </div>
+                    <div className={styles.grid}>
+                        {hbbooks.map((book) => {
+                            const item = inCart(book.id)
+                            return (
+                                <div key={book.id} className={styles.bookCard}>
+                                    <div className={styles.imageWrapper}>
+                                        <img src={book.image} alt={book.title} className={styles.image} />
+                                        <div className={styles.rating}>
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star className={`h-4 w-4 ${i < book.rating ? 'text-[#49c6ac] fill-[#49c6ac]' : 'text-gray-300'}`} key={i} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <h3 className={styles.title}>{book.title}</h3>
+                                    <p className={styles.author}>{book.author} best author in this week</p>
+                                    <span className={styles.actualPrice}>${book.price}</span>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </div>
