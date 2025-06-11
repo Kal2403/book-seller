@@ -10,7 +10,11 @@ const HomeBook = () => {
     const { cart, dispatch } = useCart();
 
     const inCart = (id) => cart?.items?.find(item => item.id === id);
-    
+
+    const handleAdd = (book) => dispatch({ type: "ADD_ITEM", payload: { ...book, quantity: 1 } })
+    const handleInc = (id) => dispatch({ type: "INCREMENT", payload: { id } })
+    const handleDec = (id) => dispatch({ type: "DECREMENT", payload: { id } })
+
     return (
         <div className={styles.section}>
             <div className={styles.container}>
