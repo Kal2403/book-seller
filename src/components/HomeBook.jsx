@@ -59,6 +59,12 @@ const HomeBook = () => {
                             )
                         })}
                     </div>
+                    <div className={styles.viewBtnWrapper}>
+                        <Link to='/books' className={styles.viewBtn}>
+                            <span>View All Books </span>
+                            <ArrowRight className={styles.viewIcon} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
