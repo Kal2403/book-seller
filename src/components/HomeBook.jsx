@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 
 const HomeBook = () => {
 
+    const { cart, dispatch } = useCart();
+
+    const inCart = (id) => cart?.items?.find(item => item.id === id);
+    
     return (
         <div className={styles.section}>
             <div className={styles.container}>
