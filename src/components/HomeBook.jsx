@@ -39,6 +39,22 @@ const HomeBook = () => {
                                     <h3 className={styles.title}>{book.title}</h3>
                                     <p className={styles.author}>{book.author} best author in this week</p>
                                     <span className={styles.actualPrice}>${book.price}</span>
+                                    {item ? (
+                                        <div className={styles.qtyBox}>
+                                            <button onClick={() => handleDec(book.id)} className={styles.qtyBtn}>
+                                                <Minus className='h-5 w-5' />
+                                            </button>
+                                            <span className='text-gray-700'>{item.quantity}</span>
+                                            <button onClick={() => handleInc(book.id)} className={styles.qtyBtn}>
+                                                <Plus className='h-5 w-5' />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <button onClick={() => handleAdd(book)} className={styles.addBtn}>
+                                            <ShoppingCart className='h-5 w-5' />
+                                            <span>Add to Cart</span>
+                                        </button>
+                                    )}
                                 </div>
                             )
                         })}
