@@ -12,6 +12,26 @@ const HomeAbout = () => {
                 <div className={s.bgBlur1}></div>
                 <div className={s.bgBlur2}></div>
             </div>
+            <div className={s.container}>
+                <div className={s.aboutGrid}>
+                    <div className={s.imageWrapper}>
+                        <div className={s.imageGlow}></div>
+                        <div className={s.imageContainer}>
+                            <img src={HomeAboutImage} alt="about image" className={s.aboutImage} />
+                        </div>
+                    </div>
+                    <div className='space-y-8'>
+                        <div>
+                            <h2 className={s.aboutHeader}>Our Literary Journey</h2>
+                            <div className={s.underline}></div>
+                        </div>
+                        <p className={s.aboutText}>
+                            Founded with a passion for literature, BookShell has evolved into a sanctuary for book lovers.
+                            We currate exceptional reading experiences, connecting readers with stories tha inspire, educate and transport them to new World
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
