@@ -29,6 +29,21 @@ const HomeAbout = () => {
                             Founded with a passion for literature, BookShell has evolved into a sanctuary for book lovers.
                             We currate exceptional reading experiences, connecting readers with stories tha inspire, educate and transport them to new World
                         </p>
+                        <div className={s.statGrid}>
+                            {hastats.map((stat, index) => (
+                                <div className={s.statCard} key={index}>
+                                    <div className={s.statIconWrap}>
+                                        <stat.icon className={s.statIcon} />
+                                    </div>
+                                    <h3 className={s.statValue}>{stat.value}</h3>
+                                    <p className={s.statLabel}>{stat.label}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <Link to='/about' className={s.aboutButton}>
+                            <span>Learn More About us</span>
+                            <ArrowRight className={s.arrowIcon} />
+                        </Link>
                     </div>
                 </div>
             </div>
