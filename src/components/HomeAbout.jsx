@@ -53,6 +53,27 @@ const HomeAbout = () => {
                         Handpicked recommendations from our literary experts that you won't want to miss.
                     </p>
                 </div>
+                <div className={s.bookGrid}>
+                    {featuredBooks.map((book, index) => (
+                        <div className={s.bookCardWrap} key={index}>
+                            <div className={s.bookCardGlow}></div>
+                            <div className={s.bookCard}>
+                                <div className={s.bookImageWrapper}>
+                                    <img src={book.image} alt={book.title} className={s.bookImage} />
+                                </div>
+                                <div className={s.bookContent}>
+                                    <h3 className={s.bookTitle}>{book.title}</h3>
+                                    <p className={s.bookAuthor}>{book.author}</p>
+                                    <p className={s.bookDesc}>{book.description}</p>
+                                    <Link to='/books' className={s.discoverLink}>
+                                        <span>Discover</span>
+                                        <ArrowRight className={s.arrowSmall} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
