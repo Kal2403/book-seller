@@ -46,6 +46,13 @@ const HomeAbout = () => {
                         </Link>
                     </div>
                 </div>
+                <div className='mb-12 text-center'>
+                    <h2 className={s.sectionHeader}>Legendary Volumes</h2>
+                    <div className={s.headerUnderline}></div>
+                    <p className={s.headerText}>
+                        Handpicked recommendations from our literary experts that you won't want to miss.
+                    </p>
+                </div>
             </div>
         </div>
     )
