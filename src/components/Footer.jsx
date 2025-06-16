@@ -52,6 +52,23 @@ const Footer = () => {
                             </button>
                         </form>
                     </div>
+                    <div className={styles.contactBlock}>
+                        <h3 className={styles.contactTitle}>Contact Us</h3>
+                        <div className={styles.contactList}>
+                            <div className={styles.contactItem}>
+                                <MapPin className={styles.contactIcon} />
+                                <span>123 Literary Lane, BookVille, BK 12345</span>
+                            </div>
+                            <div className={styles.contactRow}>
+                                <Phone className={styles.contactIconInline} />
+                                <span>+34 7777777777</span>
+                            </div>
+                            <div className={styles.contactRow}>
+                                <Mail className={styles.contactIconInline} />
+                                <span>contact@bookshell.com</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
