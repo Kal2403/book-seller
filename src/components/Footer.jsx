@@ -27,6 +27,19 @@ const Footer = () => {
                             ))}
                         </div>
                     </div>
+                    <div className={styles.quickLinksBlock}>
+                        <h3 className={styles.quickLinksTitle}>Quicl Links</h3>
+                        <ul className={styles.quickLinksList}>
+                            {quickLinks.map((link, idx) => (
+                                <li key={idx}>
+                                    <Link to={link.url} className={styles.quickLinkItem}>
+                                        <span className={styles.quickLinkDot}></span>
+                                        {link.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </footer>
