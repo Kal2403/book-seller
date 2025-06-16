@@ -40,6 +40,18 @@ const Footer = () => {
                             ))}
                         </ul>
                     </div>
+                    <div className={styles.newsletterBlock}>
+                        <h3 className={styles.newsletterTitle}>Stay Update</h3>
+                        <p className={styles.newsletterText}>
+                            Subscribe to our newsletter for the latest releases and exclusive offers.
+                        </p>
+                        <form className={styles.formWrap}>
+                            <input type="email" placeholder='Enter your email' className={styles.input} />
+                            <button type='submit' className={styles.button}>
+                                <ArrowRight className='h-4 w-4' />
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </footer>
