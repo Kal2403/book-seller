@@ -70,6 +70,15 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <div className={styles.copyrightWrap}>
+                    <p className={styles.copyrightText}>
+                        &copy; {new Date().getFullYear()} BookShell. All Right Reserved.
+                    </p>
+                    <a href="https://kaltechservices.com" target='_blank' className='text-sm cursor-pointer text-gray-500 hover:text-purple-600'>
+                        Powered By {" "} <br />
+                        KalTech Digital Services
+                    </a>
+                </div>
             </div>
         </footer>
     )
