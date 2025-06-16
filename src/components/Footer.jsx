@@ -7,6 +7,28 @@ import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 const Footer = () => {
     return (
         <footer className={styles.footer}>
+            <div className={styles.container}>
+                <div className={styles.grid}>
+                    <div className={styles.logoBlock}>
+                        <Link to='/' className={styles.logoLink}>
+                            <img src={logo} alt="logo" className={styles.logoImg} />
+                            <h1 className={styles.logoText}>
+                                BOOKSHELL
+                            </h1>
+                        </Link>
+                        <p className={styles.aboutText}>
+                            Your gateway to literary adventure. Discover, explore, and inmerse yourself in the world of books.
+                        </p>
+                        <div className={styles.socialWrap}>
+                            {socialLinks.map(({ Icon, url }, i) => (
+                                <a href={url} key={i} target='_blank' className={styles.socialButton}>
+                                    <Icon className={styles.socialIcon} />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     )
 }
