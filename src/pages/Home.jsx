@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 import OurBestSellers from '../components/OurBestSellers';
 import HomeBook from '../components/HomeBook';
 import HomeAbout from '../components/HomeAbout';
+import Footer from '../components/Footer';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <OurBestSellers />
             <HomeBook />
             <HomeAbout />
+            <Footer />
         </>
     )
 }
