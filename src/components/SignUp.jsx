@@ -20,6 +20,19 @@ const SignUp = () => {
         }
     }, [toast, navigate])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const { username, email, password } = formData
+        if (!username.trim() || !email.trim() || !password.trim()) {
+            setToast({ visible: true, message: 'All fields are required', type: 'error' });
+            return;
+        }
+        setToast({ visible: true, message: 'Creating Account...', type: 'info' });
+        setTimeout(() => {
+            setToast({ visible: true, message: 'Account created!', type: 'success' })
+        }, 2000)
+    }
+
     return (
         <div className={Signup.container}>
             {toast.visible && (
