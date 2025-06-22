@@ -40,6 +40,19 @@ const SignUp = () => {
                     {toast.message}
                 </div>
             )}
+            <div className={Signup.card}>
+                <Link to='/' className={Signup.backLink}>
+                    <ArrowLeft className='mr-1 h-4 w-4' />
+                    Back to Home
+                </Link>
+                <div className='text-center mb-8'>
+                    <div className={Signup.iconContainer}>
+                        <User className='h-6 w-6 text-[#43C6AC]' />
+                    </div>
+                    <h1 className={Signup.heading}>Create Account</h1>
+                    <p className={Signup.subtext}>Join our community of book lovers</p>
+                </div>
+            </div>
         </div>
     )
 }
