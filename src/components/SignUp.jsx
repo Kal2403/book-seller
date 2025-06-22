@@ -10,6 +10,16 @@ const SignUp = () => {
     const [toast, setToast] = useState({ visible: false, message: '', type: '' });
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if(toast.visible) {
+            const timer = setTimeout(() => {
+                setToast({visible: false, message: '', type: '' })
+                if (toast.type === 'success') navigate('/login');
+            }, 3000)
+            return () => clearTimeout(timer)
+        }
+    }, [toast, navigate])
+
     return (
         <div className={Signup.container}>
             {toast.visible && (
