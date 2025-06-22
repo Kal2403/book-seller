@@ -67,6 +67,19 @@ const SignUp = () => {
                             <input type='email' name='email' placeholder='email@example.com' className={Signup.input} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                         </div>
                     </div>
+                    <div>
+                        <label className={Signup.label}>Password</label>
+                        <div className={Signup.inputWrapper}>
+                            <Lock className={Signup.iconLeft} />
+                            <input type={showPassword ? 'text' : 'password'} name='password' placeholder='********' className={Signup.input} value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+                            <button type='button' onClick={() => setShowPassword(!showPassword)} className={Signup.togglePassword} >
+                                {showPassword ? <EyeOff className='h-5 w-5' /> : <Eye className='h-5 w-5' />}
+                            </button>
+                        </div>
+                    </div>
+                    <button type='submit' className={Signup.submitBtn}>
+                        Create Account
+                    </button>
                 </form>
             </div>
         </div>
