@@ -7,7 +7,11 @@ const SignUp = () => {
 
     return (
         <div className={Signup.container}>
-
+            {toast.visible && (
+                <div className={`${Signup.toastBase} ${toast.type === success ? Signup.toastSuccess : Signup.toastError}`}>
+                    {toast.message}
+                </div>
+            )}
         </div>
     )
 }
