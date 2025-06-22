@@ -52,6 +52,22 @@ const SignUp = () => {
                     <h1 className={Signup.heading}>Create Account</h1>
                     <p className={Signup.subtext}>Join our community of book lovers</p>
                 </div>
+                <form onSubmit={handleSubmit} className={Signup.form}>
+                    <div>
+                        <label className={Signup.label}>UserName</label>
+                        <div className={Signup.inputWrapper}>
+                            <User className={Signup.iconLeft} />
+                            <input type='text' name='username' placeholder='Enter Username' className={Signup.input} value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+                        </div>
+                    </div>
+                    <div>
+                        <label className={Signup.label}>Email</label>
+                        <div className={Signup.inputWrapper}>
+                            <Mail className={Signup.iconLeft} />
+                            <input type='email' name='email' placeholder='email@example.com' className={Signup.input} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     )
