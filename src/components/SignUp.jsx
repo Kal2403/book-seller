@@ -5,6 +5,11 @@ import { ArrowLeft, Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 
 const SignUp = () => {
 
+    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const [showPassword, setShowPassword] = useState(false);
+    const [toast, setToast] = useState({ visible: false, message: '', type: '' });
+    const navigate = useNavigate();
+
     return (
         <div className={Signup.container}>
             {toast.visible && (
