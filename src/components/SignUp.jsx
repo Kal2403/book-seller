@@ -81,6 +81,12 @@ const SignUp = () => {
                         Create Account
                     </button>
                 </form>
+                <div className={Signup.footerText}>
+                    Already have an account? {' '}
+                    <Link to='/login' className={Signup.link}>
+                        Sign in
+                    </Link>
+                </div>
             </div>
         </div>
     )
