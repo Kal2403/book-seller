@@ -55,6 +55,60 @@ const Login = () => {
                     <ArrowRight className='rotate-180 mr-1 h-4 w-4' />
                     Back to Home
                 </Link>
+                {!isLoggedIn ? (
+                    <>
+                        <div className='text-center mb-8'>
+                            <div className={loginStyles.iconCircle}>
+                                <Lock className='h-6 w-6 text-[#43C6AC]' />
+                            </div>
+                            <h1 className={loginStyles.heading}>Sign In</h1>
+                            <p className={loginStyles.subheading}>Access your BookShell account</p>
+                        </div>
+                        <form className={loginStyles.form} onSubmit={handleSubmit}>
+                            <div>
+                                <label className={loginStyles.label}>Email</label>
+                                <div className={loginStyles.inputWrapper}>
+                                    <Mail className='absolute left-3 top-3.5 h-5 w-5 text-gray-400' />
+                                    <input type="email" placeholder='email@example.com' className={loginStyles.input} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                </div>
+                            </div>
+                            <div>
+                                <label className={loginStyles.label}>Password</label>
+                                <div className={loginStyles.inputWrapper}>
+                                    <Lock className='absolute left-3 top-3.5 h-5 w-5 text-gray-400' />
+                                    <input type={showPassword ? 'text' : 'password'} placeholder='********' className={loginStyles.passwordInput} value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+                                    <button type='button' onClick={() => setShowPassword(!showPassword)} className={loginStyles.togglePassword} >
+                                        {showPassword ? <EyeOff className='h-5 w-5' /> : <Eye className='h-5 w-5' />}
+                                    </button>
+                                </div>
+                            </div>
+                            <button type='submit' disabled={isSubmitting} className={loginStyles.submitButton}>
+                                {isSubmitting ? 'Signing in...' : 'Sign in'}
+                            </button>
+                        </form>
+                        <div className={loginStyles.footerText}>
+                            Don't have an account{" "}
+                            <Link to='/signup' className={loginStyles.footerLink}>
+                                Create Account
+                            </Link>
+                        </div>
+                    </>
+                ) : (
+                    <div className={loginStyles.signedInContainer}>
+                        <div className={loginStyles.signedInIcon}>
+                            <Lock className='h-6 w-6 text-[#43C6AC]' />
+                        </div>
+                        <h2 className={loginStyles.signedInHeading}>
+                            Welcome Back
+                        </h2>
+                        <button onClick={() => navigate('/')} className={loginStyles.homepageButton}>
+                            Go to Homepage
+                        </button>
+                        <button className={loginStyles.signOutButton} onClick={handleSignOut}>
+                            Sign Out
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     )
