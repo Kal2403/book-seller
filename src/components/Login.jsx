@@ -38,6 +38,13 @@ const Login = () => {
         }
     }
 
+    const handleSignOut = () => {
+        localStorage.removeItem('authToken')
+        setToast({ visible: true, message: 'Signed out seccessfull', type: 'seccess' })
+    }
+
+    const isLoggedIn = localStorage.getItem('authToken')
+
     return (
         <div className={loginStyles.container}>
             {toast.visible && (
