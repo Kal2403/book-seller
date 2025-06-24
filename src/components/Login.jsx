@@ -11,6 +11,13 @@ const Login = () => {
     const [toast, setToast] = useState({ visible: false, message: '', type: '' });
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (toast.visible) {
+            const timer = setTimeout(() => setToast({ ...toast, visible: false }), 3000)
+            return () => clearTimeout(timer);
+        }
+    }, [toast]);
+
     return (
         <div className={loginStyles.container}>
             {toast.visible && (
