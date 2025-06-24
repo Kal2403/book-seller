@@ -50,6 +50,12 @@ const Login = () => {
             {toast.visible && (
                 <div className={loginStyles.toast(toast.type)}>{toast.message}</div>
             )}
+            <div className={loginStyles.card}>
+                <Link to="/" className={loginStyles.backLink}>
+                    <ArrowRight className='rotate-180 mr-1 h-4 w-4' />
+                    Back to Home
+                </Link>
+            </div>
         </div>
     )
 }
