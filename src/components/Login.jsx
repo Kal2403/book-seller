@@ -18,6 +18,26 @@ const Login = () => {
         }
     }, [toast]);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!formData.email || !formData.password) {
+            setToast({ visible: true, message: "All fields are required", type: 'error' })
+            return
+        }
+        setIsSubmitting(true)
+        try {
+            localStorage.setItem('authToken', 'demo-token')
+            setToast({ visible: true, message: "Login Succcessful", type: 'success' })
+            setTimeout(() => navigate('/'), 2000)
+        }
+        catch {
+            setToast({ visible: true, message: 'Login failed', type: 'error' })
+        }
+        finally {
+            setIsSubmitting(false)
+        }
+    }
+
     return (
         <div className={loginStyles.container}>
             {toast.visible && (
