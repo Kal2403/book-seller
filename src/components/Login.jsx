@@ -7,7 +7,9 @@ const Login = () => {
 
     return (
         <div className={loginStyles.container}>
-
+            {toast.visible && (
+                <div className={loginStyles.toast(toast.type)}>{toast.message}</div>
+            )}
         </div>
     )
 }
