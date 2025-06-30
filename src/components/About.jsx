@@ -37,6 +37,38 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <section className={aboutStyles.aboutSection}>
+                <div className={aboutStyles.innerContainer}>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
+                        <div className={aboutStyles.aboutImageWrapper}>
+                            <img src={aboutUsImage} alt="about" className={aboutStyles.aboutImage} />
+                            <div className={aboutStyles.aboutOverlay} />
+                            <div className={aboutStyles.aboutCaption}>
+                                <h3 className={aboutStyles.aboutTitle}>Since 2015</h3>
+                                <p className={aboutStyles.aboutSubtitle}>Pioneering Digital Literature</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={aboutStyles.aboutTextSection}>
+                        <div className={aboutStyles.aboutHeadingSection}>
+                            <h2 className={aboutStyles.aboutHeading}>Redefining Storytelleing</h2>
+                            <p className={aboutStyles.aboutParagraph}>
+                                We've transformed traditional plubishing into a dynamic digital ecosystem...
+                            </p>
+                        </div>
+                        <div className={aboutStyles.aboutBoxGrid}>
+                            <div className={aboutStyles.aboutBox}>
+                                <h4 className={aboutStyles.aboutBox}>Our Vision</h4>
+                                <p className={aboutStyles.aboutBoxHeading}>Create a global network...</p>
+                            </div>
+                            <div className={aboutStyles.aboutBox}>
+                                <h4 className={aboutStyles.aboutBoxHeading}>Our Mission</h4>
+                                <p className={aboutStyles.aboutBoxText}>Empower creators and inspire readers...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
