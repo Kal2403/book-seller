@@ -96,6 +96,34 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <section className={aboutStyles.branchSection}>
+                <div className={aboutStyles.innerContainer}>
+                    <div className='text-center mb-20'>
+                        <h2 className={aboutStyles.sectionTitle}>Our Literary Sanctuaries</h2>
+                        <div className={aboutStyles.sectionUnderline} />
+                    </div>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                        {apbranches.map((branch, index) => (
+                            <div key={index} className={aboutStyles.branchCard}>
+                                <div className={aboutStyles.aboutImageWrapper}>
+                                    <img src={branch.image} alt={branch.location} className={aboutStyles.branchImage} />
+                                    <div className={aboutStyles.branchOverlay} />
+                                </div>
+                                <div className={aboutStyles.branchInfoWrapper}>
+                                    <div className={aboutStyles.branchLocationWrapper}>
+                                        <MapPin className='h-6 w-6 text-[#43C6AC]' />
+                                        <h3 className={aboutStyles.branchLocation}>{branch.location}</h3>
+                                    </div>
+                                    <div className={aboutStyles.branchHours}>
+                                        <Clock className='h-6 w-6 text-[#43C6AC]' />
+                                        <p>{branch.hours}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
