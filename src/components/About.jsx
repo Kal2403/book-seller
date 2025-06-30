@@ -69,6 +69,33 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <section className={aboutStyles.teamSection}>
+                <div className={aboutStyles.innerContainer}>
+                    <div className='text-center mb-20'>
+                        <h2 className={aboutStyles.sectionTitle}>Meet your Literary Guides</h2>
+                        <div className={aboutStyles.sectionUnderline} />
+                    </div>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+                        {apteamMembers.map((member) => (
+                            <div className={aboutStyles.teamCard} key={member.id}>
+                                <div className={aboutStyles.teamImageWrapper}>
+                                    <img src={member.image} alt={member.name} className={aboutStyles.teamImage} />
+                                    <div className={aboutStyles.teamOverlay} />
+                                </div>
+                                <h3 className={aboutStyles.teamName}>{member.name}</h3>
+                                <p className={aboutStyles.teamPosition}>{member.position}</p>
+                                <div className='flex justify-center space-x-4'>
+                                    {[Facebook, Twitch, Instagram].map((Icon, i) => (
+                                        <button key={i} className={aboutStyles.socialIcon}>
+                                            <Icon className='h-6 w-6' />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
