@@ -22,6 +22,21 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <section className={aboutStyles.statsSection}>
+                <div className={aboutStyles.innerContainer}>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+                        {apstats.map((stat, index) => (
+                            <div key={index} className={aboutStyles.statCard}>
+                                <div className={aboutStyles.statIconWrapper}>
+                                    <stat.icon className='h-8 w-8 text-white' />
+                                </div>
+                                <h3 className={aboutStyles.statValue}>{stat.value}</h3>
+                                <p className={aboutStyles.statLabel}>{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
