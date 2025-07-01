@@ -8,6 +8,10 @@ const Cart = () => {
     const { cart, dispatch } = useCart();
     const total = cart.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart]);
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
