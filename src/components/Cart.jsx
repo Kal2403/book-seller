@@ -47,7 +47,49 @@ const Cart = () => {
                             Browse Collection
                         </Link>
                     </div>
-                ) : ()}
+                ) : (
+                    <div className={styles.cartGrid}>
+                        <div className={styles.cartItems}>
+                            {cart.items.map((item) => (
+                                <div key={`${item.source}-${item.id}`} className={styles.cartItemCard}>
+                                    <div className={styles.cartItemContent}>
+                                        <img src={getImageSource(item)} alt={item.title} className={styles.cartItemImage} />
+                                        <div className='flex-1'>
+                                            <div className={styles.cartItemTop}>
+                                                <div>
+                                                    <h3 className={styles.itemTitle}>{item.title}</h3>
+                                                    <p className={styles.itemAuthor}>{item.author}</p>
+                                                </div>
+                                                <button onClick={() => remove(item)} className={styles.removeBtn}>
+                                                    <Trash className={styles.removeIcon} />
+                                                </button>
+                                            </div>
+                                            <div className={styles.quantityPriceWrapper}>
+                                                <div className={styles.quantityControls}>
+                                                    <div className={styles.quantityBox}>
+                                                        <button onClick={() => dec(item)} className={styles.qBtn}>
+                                                            <Minus className={styles.qIcon} />
+                                                        </button>
+                                                        <span className={styles.quantityValue}>{item.quantity}</span>
+                                                        <button onClick={() => inc(item)} className={styles.qBtn}>
+                                                            <Plus className={styles.qIcon} />
+                                                        </button>
+                                                    </div>
+                                                    <span className={styles.itemTotal}>
+                                                        ${(item.price * item.quantity).toFixed(2)}
+                                                    </span>
+                                                </div>
+                                                <span className={styles.pricePerItem}>
+                                                    ${(item.price.toFixed(2))} each
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     )
