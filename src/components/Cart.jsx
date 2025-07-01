@@ -33,6 +33,21 @@ const Cart = () => {
                         {cart.items.length} item{cart.items.length !== 1 && 's'} in your cart
                     </p>
                 </div>
+                {cart.items.length === 0 ? (
+                    <div className={styles.emptyCard}>
+                        <div className={styles.emptyIconWrapper}>
+                            <ShoppingBag className={styles.emptyIcon} />
+                        </div>
+                        <h2 className={styles.emptyTitle}>Your cart feels lonely</h2>
+                        <p className={styles.emptyDescription}>
+                            Discover our collection of premium books and start your reading journey.
+                        </p>
+                        <Link to='/books' className={styles.browseBtn}>
+                            <BookOpen className={styles.browseIcon} />
+                            Browse Collection
+                        </Link>
+                    </div>
+                ) : ()}
             </div>
         </div>
     )
