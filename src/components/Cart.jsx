@@ -88,6 +88,39 @@ const Cart = () => {
                                 </div>
                             ))}
                         </div>
+                        <div className={styles.summaryCard}>
+                            <h2 className={styles.summaryTitle}>Order Summary</h2>
+                            <div className={styles.summaryBreakdown}>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>
+                                        Subtotal ({cart.items.length} items)
+                                    </span>
+                                    <span className={styles.summaryValue}>${total.toFixed(2)}</span>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Shipping</span>
+                                    <span className={styles.summaryShipping}>Free</span>
+                                </div>
+                                <div className={styles.summaryRow}>
+                                    <span className={styles.summaryLabel}>Taxes</span>
+                                    <span className={styles.summaryValue}>Calculated at checkout</span>
+                                </div>
+                            </div>
+                            <div className={styles.summaryTotalSection}>
+                                <div className={styles.totalRow}>
+                                    <span className={styles.summaryLabel}>Total</span>
+                                    <span className={styles.totalAmount}>${total.toFixed(2)}</span>
+                                </div>
+                            </div>
+                            <button className={styles.checkoutBtn}>
+                                Checkout Now
+                                <ArrowRight className={styles.checkoutIcon} />
+                            </button>
+                            <Link to='/books' className={styles.continueBtn}>
+                                <BookOpen className={styles.continueIcon} />
+                                Continue Shopping
+                            </Link>
+                        </div>
                     </div>
                 )}
             </div>
