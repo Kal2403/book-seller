@@ -12,6 +12,11 @@ const Cart = () => {
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart]);
 
+    const getImageSource = (item) => {
+        if (typeof item.image === 'string') return item.image;
+        return item.image?.default
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
