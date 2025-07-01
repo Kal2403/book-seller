@@ -17,6 +17,10 @@ const Cart = () => {
         return item.image?.default
     }
 
+    const inc = (item) => dispatch({ type: 'INCREMENT', payloac: { id: item.id, soruce: item.source } })
+    const dec = (item) => dispatch({ type: 'DECREMENT', payloac: { id: item.id, soruce: item.source } })
+    const remove = (item) => dispatch({ type: 'REMOVE_ITEM', payloac: { id: item.id, soruce: item.source } })
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
