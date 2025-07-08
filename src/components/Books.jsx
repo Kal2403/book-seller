@@ -24,6 +24,46 @@ const Books = () => {
 
     return (
         <div className={styles.container}>
+            <div className={styles.innerContainer}>
+                <div className={styles.headerWrapper}>
+                    <h1 className={styles.headerTitle}>
+                        Literary Universe
+                    </h1>
+                    <p className={styles.headerSubtitle}>
+                        Explore our vast collection of books across various genres and categories.
+                    </p>
+                </div>
+                <div className={styles.searchWrapper}>
+                    <div className={styles.searchInputWrapper}>
+                        <div className={styles.searchIconWrapper}>
+                            <Search className='h-5 w-5 md:h-6 md:w-6 text-gray-400 group-focus-within:text-[#49C6AC]' />
+                        </div>
+                        <input type="text" placeholder='Search Titles, authors' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className={styles.searchInput} />
+                    </div>
+                    <div className={styles.filterRow}>
+                        <div className={styles.selectGroup}>
+                            <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className={styles.selectBox} >
+                                {categories.map((category, index) => (
+                                    <option key={index} value={category}>
+                                        {category === 'all' ? 'All Genres' : category}
+                                    </option>
+                                ))}
+                            </select>
+                            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={styles.selectBox}>
+                                <option value="title">Sort by Title</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">To Rated</option>
+                            </select>
+                        </div>
+                        <div className={styles.resultText}>
+                            Showing {sortedBooks.length} results
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.booksGrid}>
+                </div>
+            </div>
         </div>
     )
 }
