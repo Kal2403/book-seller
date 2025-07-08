@@ -27,6 +27,10 @@ const Books = () => {
     const queryParams = new URLSearchParams(location.search);
     const searchFromURL = queryParams.get('search') || '';
 
+    const [searchTerm, setSearchTerm] = useState(searchFromURL);
+    const [sortBy, setSortBy] = useState('title');
+    const [filterCategory, setFilterCategory] = useState('all');
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
