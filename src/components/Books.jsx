@@ -58,6 +58,25 @@ const Books = () => {
 
     ]
 
+    const filteredBooks = books.filter(book => {
+        const matchCategory = filterCategory === 'all' || book.category === filterCategory
+        const lowerSearch = searchTerm.toLowerCase();
+        const matchSearch = searchTerm === '' || book.title.toLowerCase().includes(lowerSearch) || book.author.toLowerCase().includes(lowerSearch);
+
+        return matchCategory && matchSearch;
+    })
+
+    const sortedBooks = [...filteredBooks].sort((a, b) => {
+        switch (sortBy) {
+            case 'price-low': return a.price - b.price;
+            case 'price-high': return b.price - a.price;
+            case 'rating': return b.rating - a.rating;
+            default: return a.title.localeCompare(b.title, undefined, { sensitivity: 'base', numeric: true });
+        }
+    })
+    
+    const categories = ['all', ...new Set(books.map(book => book.category).filter(Boolean))];
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
