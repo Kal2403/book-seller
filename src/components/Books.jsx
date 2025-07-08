@@ -38,6 +38,26 @@ const Books = () => {
     const handleIncrement = (id) => dispatch({ type: "INCREMENT", payload: { id, source: 'booksPage' } });
     const handleDecrement = (id) => dispatch({ type: "DECREMENT", payload: { id, source: 'booksPage' } });
 
+    const books = [
+        { id: 1, image: BP1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', price: 10.99, rating: 4.5, category: 'fiction', description: 'A classic novel set in the Jazz Age, exploring themes of decadence and excess.' },
+        { id: 2, image: BP2, title: 'To Kill a Mockingbird', author: 'Harper Lee', price: 12.99, rating: 4.8, category: 'fiction', description: 'A novel about the serious issues' },
+        { id: 3, image: BP3, title: '1984', author: 'George Orwell', price: 15.99, rating: 4.7, category: 'dystopian', description: 'A dystopian novel that delves into totalitarianism and surveillance.' },
+        { id: 4, image: BP4, title: 'Pride and Prejudice', author: 'Jane Austen', price: 9.99, rating: 4.6, category: 'romance', description: 'A romantic novel that critiques the British landed gentry at the end of the 18th century.' },
+        { id: 5, image: BP5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', price: 11.99, rating: 4.2, category: 'fiction', description: 'A story about teenage angst and alienation.' },
+        { id: 6, image: BP6, title: 'The Hobbit', author: 'J.R.R. Tolkien', price: 14.99, rating: 4.9, category: 'fantasy', description: 'A fantasy novel that follows the journey of Bilbo Baggins.' },
+        { id: 7, image: BP7, title: 'Brave New World', author: 'Aldous Huxley', price: 13.99, rating: 4.4, category: 'dystopian', description: 'A dystopian novel that explores a technologically advanced future.' },
+        { id: 8, image: BP8, title: 'The Alchemist', author: 'Paulo Coelho', price: 8.99, rating: 4.3, category: 'adventure', description: 'A philosophical book about a shepherd’s journey to find his personal legend.' },
+        { id: 9, image: BP9, title: 'The Picture of Dorian Gray', author: 'Oscar Wilde', price: 10.49, rating: 4.1, category: 'fiction', description: 'A novel about a youngs quest for eternal youth and beauty.' },
+        { id: 10, image: BP10, title: 'Fahrenheit 451', author: 'Ray Bradbury', price: 12.49, rating: 4.0, category: 'dystopian', description: 'A dystopian novel that presents a future where books are banned.' },
+        { id: 11, image: BP11, title: 'The Fault in Our Stars', author: 'John Green', price: 9.49, rating: 4.5, category: 'romance', description: 'A romantic novel about two teenagers who meet at a cancer support group.' },
+        { id: 12, image: BP12, title: 'The Da Vinci Code', author: 'Dan Brown', price: 14.49, rating: 4.2, category: 'mystery', description: 'A mystery thriller that follows symbologist Robert Langdon.' },
+        { id: 13, image: BP13, title: 'The Shining', author: 'Stephen King', price: 11.49, rating: 4.6, category: 'horror', description: 'A horror novel about a family staying in an isolated hotel.' },
+        { id: 14, image: BP14, title: 'Sapiens: A Brief History of Humankind', author: 'Yuval Noah Harari', price: 16.99, rating: 4.8, category: 'non-fiction', description: 'A non-fiction book that explores the history of humankind from the Stone Age to the present.' },
+        { id: 15, image: BP15, title: 'Educated', author: 'Tara Westover', price: 13.49, rating: 4.7, category: 'memoir', description: 'A memoir ...' },
+        { id: 16, image: BP16, title: 'Becoming', author: 'Michelle Obama', price: 15.49, rating: 4.9, category: 'memoir', description: 'A memoir by the former First Lady of the United States, Michelle Obama.' }
+
+    ]
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
