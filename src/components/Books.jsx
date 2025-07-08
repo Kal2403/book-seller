@@ -22,6 +22,11 @@ import { useCart } from '../CartContext/CartContext';
 
 const Books = () => {
 
+    const {cart, dispatch} = useCart();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const searchFromURL = queryParams.get('search') || '';
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
