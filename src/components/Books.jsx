@@ -117,6 +117,49 @@ const Books = () => {
                     </div>
                 </div>
                 <div className={styles.booksGrid}>
+                    {sortedBooks.map((book) => {
+                        const inCart = isInCart(book.id);
+                        const qty = getCartQuantity(book.id);
+
+                        return (
+                            <div key={book.id} className={styles.bookCard}>
+                                <div className={styles.imageWrapper}>
+                                    <img src={book.image} alt={book.title} className={styles.imageStyle} />
+                                </div>
+                                <h3 className={styles.title}>{book.title}</h3>
+                                <p className={styles.author}>by {book.author}</p>
+                                <div className={styles.ratingWrapper}>
+                                    {[...Array(isFinite(book.rating) ? Math.floor(book.rating) : 0)].map((_, index) => (
+                                        <Star className='w-4 h-4 fill-yellow-400 stroke-yellow-400' key={index} />
+                                    ))}
+                                    <span>({Number.isFinite(book.rating) ? book.rating.toFixed(1) : 'N/A'})</span>
+                                </div>
+                                <p className={styles.description}>
+                                    {book.description}
+                                </p>
+                                <div className={styles.priceCartWrapper}>
+                                    <span className={styles.price}>${book.price.toFixed(2)}</span>
+                                    <div className={styles.cartButtons}>
+                                        {!inCart ? (
+                                            <button onClick={() => handleAddToCart(book)}>
+                                                <ShoppingBag className='w-5 h-5 text-white' />
+                                            </button>
+                                        ): (
+                                            <div className='flex items-center gap-1'>
+                                                <button onClick={() => handleDecrement(book.id)}>
+                                                    <Minus className='w-4 h-4 text-white' />
+                                                </button>
+                                                <span>{qty}</span>
+                                                <button onClick={() => handleIncrement(book.id)}>
+                                                    <Plus className='w-4 h-4 text-white' />
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
