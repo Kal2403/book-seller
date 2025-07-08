@@ -31,6 +31,13 @@ const Books = () => {
     const [sortBy, setSortBy] = useState('title');
     const [filterCategory, setFilterCategory] = useState('all');
 
+    const isInCart = (id) => cart?.items?.some(item => item.id === id && item.source === 'booksPage')
+    const getCartQuantity = (id) => cart?.items?.find(item => item.id === id && item.source === 'booksPage')?.quantity || 0;
+    
+    const handleAddToCart = (book) => dispatch({ type: "ADD_ITEM", payload: { ...book, quantity: 1, source: 'booksPage' } });
+    const handleIncrement = (id) => dispatch({ type: "INCREMENT", payload: { id, source: 'booksPage' } });
+    const handleDecrement = (id) => dispatch({ type: "DECREMENT", payload: { id, source: 'booksPage' } });
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
